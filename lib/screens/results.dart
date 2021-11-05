@@ -11,6 +11,13 @@ class Results extends StatefulWidget {
 
 class _ResultsState extends State<Results> {
   bool isActive = false;
+
+  Function? _onTapSelectCase() {
+    setState(() {
+      this.isActive = !this.isActive;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +33,8 @@ class _ResultsState extends State<Results> {
               _title(context),
               _subtitle(context),
               SizedBox(height: 25),
-              _switchCaseWidget(context, this.isActive),
+              _switchCaseWidget(context,
+                  isActive: this.isActive, onTapSelectCase: _onTapSelectCase()),
               SizedBox(height: 25),
               _shoppingCart(context, cart: {
                 'title': 'Top Agro',
@@ -61,7 +69,8 @@ Widget _subtitle(context) {
   );
 }
 
-Widget _switchCaseWidget(context, bool isActive) {
+Widget _switchCaseWidget(context,
+    {bool? isActive, Function? onTapSelectCase}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
@@ -76,15 +85,22 @@ Widget _switchCaseWidget(context, bool isActive) {
               )),
           child: Row(
             children: [
-              _selectCase(context, isActive: isActive, text: 'Distançia'),
-              _selectCase(context, isActive: !isActive, text: 'Preço'),
+              _selectCase(context,
+                  isActive: isActive,
+                  text: 'Distançia',
+                  onTapSelectCase: onTapSelectCase),
+              _selectCase(context,
+                  isActive: !isActive!,
+                  text: 'Preço',
+                  onTapSelectCase: onTapSelectCase),
             ],
           )),
     ],
   );
 }
 
-Widget _selectCase(context, {String? text, bool? isActive}) {
+Widget _selectCase(context,
+    {String? text, bool? isActive, Function? onTapSelectCase}) {
   return AnimatedContainer(
     width: 92.0,
     duration: Duration(milliseconds: 300),
@@ -93,7 +109,7 @@ Widget _selectCase(context, {String? text, bool? isActive}) {
     child: Ink(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
       child: InkWell(
-        onTap: () {},
+        onTap: () => onTapSelectCase!(),
         child: Text(
           text!,
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
@@ -202,10 +218,8 @@ Widget _bottom(context, {required Map<String, dynamic>? cart}) {
       RichText(
         text: TextSpan(
           text: 'Data de pagamento\n',
-          style: Theme.of(context)
-              .textTheme
-              .bodyText1!
-              .copyWith(color: Theme.of(context).primaryColorLight, fontSize: 9),
+          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+              color: Theme.of(context).primaryColorLight, fontSize: 9),
           children: <TextSpan>[
             TextSpan(
                 text: cart['date'],
