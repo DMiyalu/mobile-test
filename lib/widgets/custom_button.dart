@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget actionButton(context, {bool? uppercaseText: false, Color? 
-  bkgColor, Color? textColor, required String? text, required Function? onTap}) {
+  bkgColor, Color? textColor, required String text, required Function onTap}) {
   return TextButton(
     style: ButtonStyle(
       alignment: Alignment.center,
@@ -11,9 +11,9 @@ Widget actionButton(context, {bool? uppercaseText: false, Color?
       padding: MaterialStateProperty.all(
           EdgeInsets.symmetric(vertical: 5, horizontal: 10)),
     ),
-    onPressed: () => onTap!,
+    onPressed: () => onTap(),
     child: Text(
-      uppercaseText! ? text!.toUpperCase() : text!,
+      uppercaseText! ? text.toUpperCase() : text,
       style:
           Theme.of(context).textTheme.bodyText1!.copyWith(color: textColor!),
     ),

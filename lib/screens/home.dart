@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_test/widgets/custom_button.dart';
 
 class Home extends StatefulWidget {
@@ -37,7 +38,7 @@ Widget _leadingImage(context) {
     width: MediaQuery.of(context).size.width,
     alignment: Alignment.center,
     child: Image(
-      image: AssetImage("assets/images/img2.jpeg"),
+      image: AssetImage("assets/images/img4.jpg"),
       fit: BoxFit.cover,
     ),
   );
@@ -100,11 +101,11 @@ Widget _bottom(context) {
       children: [
         actionButton(context, text: "ir para historico de negociaçoes",
           textColor: Colors.white,
-          bkgColor: Theme.of(context).primaryColor, onTap: (){}),
+          bkgColor: Theme.of(context).primaryColor, onTap: () => Get.toNamed('/results')),
         actionButton(context, text: "Voltar para pagina inicial",
           textColor: Theme.of(context).primaryColor,
           uppercaseText: true,
-          bkgColor: Colors.white, onTap: (){}),
+          bkgColor: Colors.white, onTap: () => Get.toNamed('/market')),
       ],
     ),
   );
