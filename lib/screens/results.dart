@@ -12,7 +12,7 @@ class Results extends StatefulWidget {
 class _ResultsState extends State<Results> {
   bool isActive = false;
 
-  Function? _onTapSelectCase() {
+  _onTapSelectCase() {
     setState(() {
       this.isActive = !this.isActive;
     });
@@ -34,7 +34,7 @@ class _ResultsState extends State<Results> {
               _subtitle(context),
               SizedBox(height: 25),
               _switchCaseWidget(context,
-                  isActive: this.isActive, onTapSelectCase: _onTapSelectCase()),
+                  isActive: this.isActive, onTapSelectCase: _onTapSelectCase),
               SizedBox(height: 25),
               _shoppingCart(context, cart: {
                 'title': 'Top Agro',
@@ -69,8 +69,7 @@ Widget _subtitle(context) {
   );
 }
 
-Widget _switchCaseWidget(context,
-    {bool? isActive, Function? onTapSelectCase}) {
+Widget _switchCaseWidget(context, {bool? isActive, required Function onTapSelectCase}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
@@ -100,7 +99,7 @@ Widget _switchCaseWidget(context,
 }
 
 Widget _selectCase(context,
-    {String? text, bool? isActive, Function? onTapSelectCase}) {
+    {String? text, bool? isActive, required Function onTapSelectCase}) {
   return AnimatedContainer(
     width: 92.0,
     duration: Duration(milliseconds: 300),
@@ -109,7 +108,7 @@ Widget _selectCase(context,
     child: Ink(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
       child: InkWell(
-        onTap: () => onTapSelectCase!(),
+        onTap: () => onTapSelectCase(),
         child: Text(
           text!,
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
