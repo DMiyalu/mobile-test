@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_test/router.dart';
-import 'package:mobile_test/screens/home.dart';
+import 'package:mobile_test/screens/home/home.dart';
 import 'package:get/get.dart';
 
 void main() {

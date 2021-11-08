@@ -13,25 +13,6 @@ class Results extends StatefulWidget {
 
 class _ResultsState extends State<Results> with TickerProviderStateMixin {
   bool isActive = false;
-  // late AnimationController controller;
-
-  // @override
-  // void initState() {
-  //   controller = AnimationController(
-  //     vsync: this,
-  //     duration: const Duration(seconds: 3),
-  //   )..addListener(() {
-  //       setState(() {});
-  //     });
-  //   controller.repeat(reverse: true);
-  //   super.initState();
-  // }
-
-  // @override
-  // void dispose() {
-  //   controller.dispose();
-  //   super.dispose();
-  // }
 
   _onTapSelectCase() {
     setState(() {

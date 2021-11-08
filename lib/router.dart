@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:mobile_test/screens/home.dart';
-import 'package:mobile_test/screens/market.dart';
-import 'package:mobile_test/screens/results.dart';
+import 'package:mobile_test/screens/home/home.dart';
+import 'package:mobile_test/screens/market/market.dart';
+import 'package:mobile_test/screens/results/results.dart';
 
 List<GetPage<dynamic>>? getPages() {
   return [
