@@ -317,7 +317,22 @@ Widget _marketCart(context, {required Map<String, dynamic>? market}) {
         _marketThirdDetails(context),
         SizedBox(height: 10),
         _marketPaymentButton(context),
+        SizedBox(height: 5),
+        _suggestions(context),
+        SizedBox(height: 8),
       ],
+    ),
+  );
+}
+
+Widget _suggestions(context) {
+  return Center(
+    child: Text(
+      'Valor sujetto à taxas e encargos',
+      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    color: Theme.of(context).primaryColorLight,
+                    fontSize: 9.0,
+                    fontStyle: FontStyle.italic)
     ),
   );
 }
@@ -359,19 +374,20 @@ Widget _marketPaymentButton(context) {
       Expanded(
         child: Container(
           margin: EdgeInsets.only(left: 5, right: 15),
-          child: actionButton(context,
-              text: 'Vender',
-              textColor: Colors.white,
-              bkgColor: Theme.of(context).primaryColor,
-              onTap: () => Get.bottomSheet(
-                _bottomInfos(context),
-                backgroundColor: Colors.black,
-                elevation: 2,
-                enableDrag: true,
-                exitBottomSheetDuration: Duration(milliseconds: 600),
-                isDismissible: true,
-                ),
-              ),
+          child: actionButton(
+            context,
+            text: 'Vender',
+            textColor: Colors.white,
+            bkgColor: Theme.of(context).primaryColor,
+            onTap: () => Get.bottomSheet(
+              _bottomInfos(context),
+              backgroundColor: Colors.black,
+              elevation: 2,
+              enableDrag: true,
+              exitBottomSheetDuration: Duration(milliseconds: 600),
+              isDismissible: true,
+            ),
+          ),
         ),
       )
     ],
@@ -383,14 +399,14 @@ Widget _bottomInfos(context) {
     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
     child: Row(
       children: [
-        Icon(
-          Icons.nearby_error, color: Theme.of(context).primaryColorLight, size: 10
-        ),
+        Icon(Icons.nearby_error,
+            color: Theme.of(context).primaryColorLight, size: 10),
         SizedBox(width: 10),
         Text('No vender encontrar',
-        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-          color: Colors.white
-        )),
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1!
+                .copyWith(color: Colors.white)),
       ],
     ),
   );
