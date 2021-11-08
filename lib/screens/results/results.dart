@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_test/screens/results/widgets.dart';
 import 'package:mobile_test/widgets/custom_button.dart';
 import 'package:mobile_test/widgets/effects.dart';
 import 'package:mobile_test/widgets/header.dart';
@@ -32,8 +33,8 @@ class _ResultsState extends State<Results> with TickerProviderStateMixin {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _title(context),
-              _subtitle(context),
+              title(context),
+              subtitle(context),
               SizedBox(height: 25),
               _switchCaseWidget(context,
                   isActive: this.isActive, onTapSelectCase: _onTapSelectCase),
@@ -61,24 +62,6 @@ class _ResultsState extends State<Results> with TickerProviderStateMixin {
       ),
     );
   }
-}
-
-Widget _title(context) {
-  return Text(
-    'Ofertas de Vendas',
-    style: Theme.of(context).textTheme.headline6!.copyWith(
-          color: Theme.of(context).accentColor,
-        ),
-    textAlign: TextAlign.left,
-  );
-}
-
-Widget _subtitle(context) {
-  return Text(
-    'Preencha os dados da sua fazenda e do seu produto pra gente encontrar as melhores ofertas',
-    style: Theme.of(context).textTheme.bodyText1!,
-    textAlign: TextAlign.left,
-  );
 }
 
 Widget _switchCaseWidget(context,
