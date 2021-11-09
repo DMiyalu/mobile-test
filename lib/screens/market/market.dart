@@ -27,8 +27,9 @@ class _MarketState extends State<Market> {
             children: [
               title(context, text: 'Informaçoes de venda'),
               subtitle(context, text: 'Preencha os dados da sua fazenda e do seu produto pra gente encontrar as melhores ofertas'),
-              SizedBox(height: 8),
+              SizedBox(height: 35),
               form(context, _formKey),
+              SizedBox(height: 15),
             ],
           ),
         ),
