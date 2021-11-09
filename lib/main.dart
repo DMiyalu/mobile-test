@@ -38,11 +38,12 @@ ThemeData themeData() {
       bodyText1: TextStyle(
         fontSize: 12.0,
         fontWeight: FontWeight.normal,
-        color: Colors.black.withOpacity(.8),
+        color: Color.fromRGBO(149, 149, 149, 1),
       ),
       headline6: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w500,
+        color: Color.fromRGBO(149, 149, 149, 1),
         wordSpacing: 0,
       ),
     ),
