@@ -22,7 +22,7 @@ Widget form(context, formKey) {
             placeholder: '100',
             suffixIcon: Icon(Icons.done,
                 color: Theme.of(context).primaryColor, size: 12)),
-        SizedBox(height: 30),
+        SizedBox(height: 25),
         _inputField(context,
             labelText: 'Qual o periodo de entrega?',
             placeholder: '28/02/2020',
@@ -43,14 +43,15 @@ Widget _distance(context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text('Até qual distancia voce levaria sua soja?', textAlign: TextAlign.left),
-      Text(
-        'Defina o raio maximo em quilometros',
-        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-          fontSize: 10, fontWeight: FontWeight.w400
-        ), textAlign: TextAlign.left
-      ),
-      SizedBox(height: 10),
+      Text('Até qual distancia voce levaria sua soja?',
+          textAlign: TextAlign.left),
+      Text('Defina o raio maximo em quilometros',
+          style: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(fontSize: 10, fontWeight: FontWeight.w400),
+          textAlign: TextAlign.left),
+      SizedBox(height: 8),
       RangeSlider(
         values: _currentRangeValues,
         min: 0,
@@ -63,6 +64,7 @@ Widget _distance(context) {
           _currentRangeValues.end.round().toString(),
         ),
         onChanged: (RangeValues values) {
+          _currentRangeValues = values;
           // setState(() {
           //   _currentRangeValues = values;
           // });
