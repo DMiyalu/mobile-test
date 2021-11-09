@@ -8,7 +8,7 @@ class Market extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(context, 'Informaçoes de venda'),
+      appBar: header(context, 'Fazer Cotaçao'),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -17,8 +17,8 @@ class Market extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              title(context),
-              subtitle(context),
+              title(context, text: 'Informaçoes de venda'),
+              subtitle(context, text: 'Preencha os dados da sua fazenda e do seu produto pra gente encontrar as melhores ofertas'),
               SizedBox(height: 8),
             ],
           ),

@@ -33,8 +33,8 @@ class _ResultsState extends State<Results> with TickerProviderStateMixin {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              title(context),
-              subtitle(context),
+              title(context, text: 'Ofertas de Vendas'),
+              subtitle(context, text: 'Preencha os dados da sua fazenda e do seu produto pra gente encontrar as melhores ofertas'),
               SizedBox(height: 25),
               _switchCaseWidget(context,
                   isActive: this.isActive, onTapSelectCase: _onTapSelectCase),

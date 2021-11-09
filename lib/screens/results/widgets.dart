@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-Widget title(context) {
+Widget title(context, {required String? text}) {
   return Text(
-    'Ofertas de Vendas',
+    text!,
     style: Theme.of(context).textTheme.headline6!.copyWith(
           color: Theme.of(context).accentColor,
         ),
@@ -10,9 +10,9 @@ Widget title(context) {
   );
 }
 
-Widget subtitle(context) {
+Widget subtitle(context, {required String? text}) {
   return Text(
-    'Preencha os dados da sua fazenda e do seu produto pra gente encontrar as melhores ofertas',
+    text!,
     style: Theme.of(context).textTheme.bodyText1!,
     textAlign: TextAlign.left,
   );
