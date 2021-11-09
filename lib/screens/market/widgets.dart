@@ -38,15 +38,38 @@ Widget form(context, formKey) {
 }
 
 Widget _distance(context) {
-  return Column(children: [
-    Text(
-      'Até qual distancia voce levaria sua soja?'
-    ),
-    SizedBox(height: 10),
-    Container(
-      child: Text('progress line')
-    )
-  ],);
+  double entryPoint = 40;
+  RangeValues _currentRangeValues = new RangeValues(0, entryPoint);
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text('Até qual distancia voce levaria sua soja?', textAlign: TextAlign.left),
+      Text(
+        'Defina o raio maximo em quilometros',
+        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          fontSize: 10, fontWeight: FontWeight.w400
+        ), textAlign: TextAlign.left
+      ),
+      SizedBox(height: 10),
+      RangeSlider(
+        values: _currentRangeValues,
+        min: 0,
+        max: 100,
+        divisions: 4,
+        activeColor: Theme.of(context).primaryColor,
+        inactiveColor: Theme.of(context).primaryColorLight,
+        labels: RangeLabels(
+          _currentRangeValues.start.round().toString(),
+          _currentRangeValues.end.round().toString(),
+        ),
+        onChanged: (RangeValues values) {
+          // setState(() {
+          //   _currentRangeValues = values;
+          // });
+        },
+      )
+    ],
+  );
 }
 
 Widget _inputField(context,
