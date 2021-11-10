@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_test/widgets/custom_button.dart';
+import 'package:mobile_test/widgets/rangeslider/range_slider_label_widget.dart';
 
 Widget form(context, formKey) {
   return Form(
@@ -38,8 +39,6 @@ Widget form(context, formKey) {
 }
 
 Widget _distance(context) {
-  double entryPoint = 40;
-  RangeValues _currentRangeValues = new RangeValues(0, entryPoint);
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -52,24 +51,7 @@ Widget _distance(context) {
               .copyWith(fontSize: 10, fontWeight: FontWeight.w400),
           textAlign: TextAlign.left),
       SizedBox(height: 8),
-      RangeSlider(
-        values: _currentRangeValues,
-        min: 0,
-        max: 100,
-        divisions: 4,
-        activeColor: Theme.of(context).primaryColor,
-        inactiveColor: Theme.of(context).primaryColorLight,
-        labels: RangeLabels(
-          _currentRangeValues.start.round().toString(),
-          _currentRangeValues.end.round().toString(),
-        ),
-        onChanged: (RangeValues values) {
-          _currentRangeValues = values;
-          // setState(() {
-          //   _currentRangeValues = values;
-          // });
-        },
-      )
+      RangeSliderLabelWidget(),
     ],
   );
 }
