@@ -15,9 +15,12 @@ class _RangeSliderLabelWidgetState extends State<RangeSliderLabelWidget> {
   @override
   Widget build(BuildContext context) => SliderTheme(
         data: SliderThemeData(
-          /// ticks in between
-          activeTickMarkColor: Colors.transparent,
-          inactiveTickMarkColor: Colors.transparent,
+          activeTickMarkColor: Colors.white,
+          inactiveTickMarkColor: Theme.of(context).primaryColor,
+          activeTrackColor: Theme.of(context).primaryColor,
+          inactiveTrackColor: Theme.of(context).primaryColorLight.withOpacity(.2),
+          trackHeight: 2.5,
+          thumbColor: Theme.of(context).primaryColor,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

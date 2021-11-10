@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_test/widgets/rangeslider/custom_slider_thumb_circle.dart';
 
 class CustomSliderTheme extends StatelessWidget {
   final Widget? child;
@@ -13,6 +14,10 @@ class CustomSliderTheme extends StatelessWidget {
     const double thumbRadius = 14;
     const double tickMarkRadius = 8;
 
+    final labels = ['0 km', '100 km', '200 km', '300 km', '+400 km'];
+    final int min = 0;
+    final int max = labels.length - 1;
+
     final activeColor = Color.fromRGBO(255, 0, 77, 1);
     final inactiveColor = Color.fromRGBO(109, 114, 120, 1);
 
@@ -21,10 +26,11 @@ class CustomSliderTheme extends StatelessWidget {
         trackHeight: 5,
 
         /// Thumb
-        rangeThumbShape: RoundRangeSliderThumbShape(
-          disabledThumbRadius: thumbRadius,
-          enabledThumbRadius: thumbRadius,
-        ),
+        thumbShape: CustomSliderThumbCircle(
+                      thumbRadius: thumbRadius,
+                      min: min,
+                      max: max,
+                    ),
 
         /// Tick Mark
         rangeTickMarkShape:

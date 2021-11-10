@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_test/widgets/custom_button.dart';
 import 'package:mobile_test/widgets/rangeslider/range_slider_label_widget.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 Widget form(context, formKey) {
   return Form(
@@ -39,6 +40,10 @@ Widget form(context, formKey) {
 }
 
 Widget _distance(context) {
+  var labelStyle = Theme.of(context).textTheme.bodyText1!.copyWith(
+          fontSize: 8, fontWeight: FontWeight.w400
+        );
+  double _value = 6.0;
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -51,7 +56,53 @@ Widget _distance(context) {
               .copyWith(fontSize: 10, fontWeight: FontWeight.w400),
           textAlign: TextAlign.left),
       SizedBox(height: 8),
-      RangeSliderLabelWidget(),
+      // RangeSliderLabelWidget(),
+      SfSlider(
+        min: 0.0,
+          max: 100.0,
+          value: _value,
+          interval: 25,
+          showTicks: true,
+          showLabels: true,
+          thumbShape: SfThumbShape (),
+          enableTooltip: true,
+          minorTicksPerInterval: 1,
+          activeColor: Theme.of(context).primaryColor,
+          inactiveColor: Theme.of(context).primaryColorLight.withOpacity(.2),
+          overlayShape: SfOverlayShape(),
+
+          thumbIcon: Icon(
+                    Icons.done,
+                    color: Theme.of(context).primaryColor,
+                    size: 14.0),
+          onChanged: (dynamic value){
+            // setState(() {
+            //   _value = value;
+            // });
+          },
+      ),
+      // SfSliderTheme(
+      //   data: SfSliderThemeData(
+      //         thumbColor: Colors.white,
+      //         thumbRadius: 15,
+      //         thumbStrokeWidth: 2,
+      //         thumbStrokeColor: Colors.blue
+      //       ),
+      //   child: Center(
+      //         child: SfSlider(
+      //           min: 2.0,
+      //           max: 10.0,
+      //           interval: 1,
+      //           thumbIcon: Icon(
+      //               Icons.arrow_forward_ios,
+      //               color: Colors.blue,
+      //               size: 20.0),
+      //           showLabels: true,
+      //           value: _value,
+      //           onChanged: (dynamic newValue) {
+                  
+      //           },
+              // )
     ],
   );
 }
