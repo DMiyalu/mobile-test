@@ -70,7 +70,6 @@ Widget _distance(context) {
           activeColor: Theme.of(context).primaryColor,
           inactiveColor: Theme.of(context).primaryColorLight.withOpacity(.2),
           overlayShape: SfOverlayShape(),
-
           thumbIcon: Icon(
                     Icons.done,
                     color: Theme.of(context).primaryColor,
@@ -81,29 +80,7 @@ Widget _distance(context) {
             // });
           },
       ),
-      // SfSliderTheme(
-      //   data: SfSliderThemeData(
-      //         thumbColor: Colors.white,
-      //         thumbRadius: 15,
-      //         thumbStrokeWidth: 2,
-      //         thumbStrokeColor: Colors.blue
-      //       ),
-      //   child: Center(
-      //         child: SfSlider(
-      //           min: 2.0,
-      //           max: 10.0,
-      //           interval: 1,
-      //           thumbIcon: Icon(
-      //               Icons.arrow_forward_ios,
-      //               color: Colors.blue,
-      //               size: 20.0),
-      //           showLabels: true,
-      //           value: _value,
-      //           onChanged: (dynamic newValue) {
-                  
-      //           },
-              // )
-    ],
+          ],
   );
 }
 
